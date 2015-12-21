@@ -5,3 +5,5 @@ phpunit.xml
 vendor
 .idea
 clover.xml
+cache/*
+logs/*

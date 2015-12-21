@@ -24,6 +24,6 @@ class HelloWorldAction extends BaseAction
      */
     public function __invoke (ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-        return $this->view->render($response, "hello.twig", []);
+        return $this->twig->render($response, "hello.twig", []);
     }
 }
