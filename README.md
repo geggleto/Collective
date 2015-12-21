@@ -14,6 +14,7 @@ The application expects you to set your web root to the public directory and hav
 # Routes
 Routes can be configured in the app.config class for easy configuration.
 Each route must have a pattern (key) and a callable element. Middleware and names are optional
+
 `
     'routes' => [
         'get' => [
@@ -24,6 +25,7 @@ Each route must have a pattern (key) and a callable element. Middleware and name
 
 # Application Middleware
 Application middleware can be configured in the app.config file as well.
+
 `
     "app-middleware" => [
         LoggerMiddleware::class
