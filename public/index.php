@@ -9,8 +9,19 @@ foreach ($container['app-middleware'] as $mw) {
     $app->add($mw);
 }
 
-foreach ($container['routes']['get'] as $pattern => $callable) {
-    $app->get($pattern, $callable);
+foreach ($container['routes']['get'] as $pattern => $info) {
+
+    $route = $app->get($pattern, $info['callable']);
+
+    if (count($info['mw']) > 1) {
+        foreach ($info['mw'] as $mw) {
+            $route->add($mw);
+        }
+    }
+
+    if (!empty($info['name'])) {
+        $route->setName($info['name']);
+    }
 }
 
 
