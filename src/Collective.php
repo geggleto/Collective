@@ -11,5 +11,26 @@ namespace Collective;
 
 class Collective extends \Slim\App
 {
+    public function applyMiddleware() {
+        foreach ($this->getContainer()['app-middleware'] as $mw) {
+            $this->add($mw);
+        }
+    }
 
+    public function applyRoutes() {
+        foreach ($this->getContainer()['routes']['get'] as $pattern => $info) {
+
+            $route = $this->get($pattern, $info['callable']);
+
+            if (isset($info['mw']) && count($info['mw']) > 1) {
+                foreach ($info['mw'] as $mw) {
+                    $route->add($mw);
+                }
+            }
+
+            if (!empty($info['name'])) {
+                $route->setName($info['name']);
+            }
+        }
+    }
 }
