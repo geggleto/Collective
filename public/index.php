@@ -1,15 +1,17 @@
 <?php
 require '../vendor/autoload.php';
 
-use Collective\Actions\HelloWorldAction;
-use Collective\Middleware\LoggerMiddleware;
-
 $container = new \Slim\Container(require '../config/app.config');
 
 $app = new \Collective\Collective($container);
 
-$app->add(LoggerMiddleware::class);
+foreach ($container['app-middleware'] as $mw) {
+    $app->add($mw);
+}
 
-$app->get('/', HelloWorldAction::class);
+foreach ($container['routes']['get'] as $pattern => $callable) {
+    $app->get($pattern, $callable);
+}
+
 
 $app->run();
