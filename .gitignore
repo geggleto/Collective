@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+.DS_Store
+composer.lock
+phpunit.xml
+vendor
+.idea
+clover.xml

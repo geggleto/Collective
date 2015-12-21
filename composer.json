@@ -1,0 +1,20 @@
+{
+  "name": "theslimcollective/collective",
+  "description": "ADR Framework",
+  "authors": [
+    {
+      "name": "Glenn Eggleton",
+      "email": "geggleto@gmail.com"
+    }
+  ],
+  "require": {
+    "theslimcollective/helper_classes": "0.0.4",
+    "slim/twig-view": "2.0",
+    "monolog/monolog": "1.17.2"
+  },
+  "autoload" : {
+    "psr-4" : {
+      "Collective\\" : "src"
+    }
+  }
+}
