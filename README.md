@@ -11,3 +11,21 @@ To turn Twig Caching off set `$container["config"]["cache_path"] = false`
 ## Environment
 The application expects you to set your web root to the public directory and have the ability to rewrite URLS. A default .htaccess is provided.
 
+# Routes
+Routes can be configured in the app.config class for easy configuration.
+Each route must have a pattern (key) and a callable element. Middleware and names are optional
+`
+    'routes' => [
+        'get' => [
+            '/' => [ "callable" => HelloWorldAction::class, "mw" => [], "name" => "" ]
+        ]
+    ]
+`
+
+# Application Middleware
+Application middleware can be configured in the app.config file as well.
+`
+    "app-middleware" => [
+        LoggerMiddleware::class
+    ]
+`

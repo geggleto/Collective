@@ -13,7 +13,7 @@ foreach ($container['routes']['get'] as $pattern => $info) {
 
     $route = $app->get($pattern, $info['callable']);
 
-    if (count($info['mw']) > 1) {
+    if (isset($info['mw']) && count($info['mw']) > 1) {
         foreach ($info['mw'] as $mw) {
             $route->add($mw);
         }
