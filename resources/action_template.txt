@@ -1,0 +1,23 @@
+<?php
+
+namespace Collective\Actions;
+
+
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use TheSlimCollective\Helper\BaseAction;
+
+class !nameAction extends BaseAction
+{
+
+    /**
+     * @param \Psr\Http\Message\ServerRequestInterface $request
+     * @param \Psr\Http\Message\ResponseInterface      $response
+     * @param array                                    $args
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function __invoke (ServerRequestInterface $request, ResponseInterface $response, array $args)
+    {
+        //TODO
+    }
+}

@@ -48,3 +48,16 @@ Middleware closures can be added at any point before run by wrapping your closur
         }
     );
 ```
+
+# CLI Tools
+Collective provides a Symfony console app for creating Actions and Middleware easily.
+
+### Actions
+```php
+php cli.php create:action MyActionClassName
+```
+
+### Middleware
+```php
+php cli.php create:middleware MyMiddlewareClassName
+```
