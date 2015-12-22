@@ -48,7 +48,12 @@ Each route must have a pattern (key) and a callable element. Middleware and name
 
 ```php
     'routes' => [
+        //What HTTP Verb
         'get' => [
+            //   / => Pattern
+            //   callable => What action to run
+            //   mw => What middleware are we running
+            //   name => name the route
             '/' => [ "callable" => HelloWorldAction::class, "mw" => [], "name" => "" ]
         ]
     ]
@@ -103,3 +108,9 @@ php cli.php create:action MyActionClassName
 ```php
 php cli.php create:middleware MyMiddlewareClassName
 ```
+
+
+# Optional Packages
+ - Rate Limiting
+ - Authentication
+ - 
