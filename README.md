@@ -73,3 +73,34 @@ php cli.php create:action MyActionClassName
 ```php
 php cli.php create:middleware MyMiddlewareClassName
 ```
+
+# Session
+Sessions are defaultly ON
+If you want to turn sessions off, then remove the "session" key from the app.config file.
+The session class uses whatever your php is configured to use [which is files by default].
+
+Supported Syntax:
+```php
+$this->session->get('key');
+$this->session->put('key', 'value');
+$this->session->has('key');
+$this->session->key;
+$this->session->key = 'value';
+isset($this->session->key);
+```
+
+# Theory
+
+## Dependency Resolution
+In any class that extends either BaseAction or BaseMiddleware, any dependency listed in app.config will be
+  available in the class by accessing it through the app.config key as a class property.
+  
+That is to say, if I want to access the session object in an action,
+```php
+//Access Session object in a Action
+public function __invoke (ServerRequestInterface $request, ResponseInterface $response, array $args)
+{
+    $session = $this->session;
+    return $this->twig->render($response, "hello.twig", [$session->get('name')]);
+}
+```

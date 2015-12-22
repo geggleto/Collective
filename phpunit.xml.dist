@@ -22,7 +22,7 @@
     </testsuites>
 
     <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+        <whitelist>
             <directory>./src/</directory>
         </whitelist>
     </filter>
