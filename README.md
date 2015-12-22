@@ -37,14 +37,13 @@ Application middleware can be configured in the app.config file as well.
 
 # Middleware Closures
 Middleware closures can be added at any point before run by wrapping your closure with a factory closure from pimple.
-`
-       $this->collective->addMw("Test2", function ($c) {
-                return function ($req, $res, $next) {
-                    $res = $next($req, $res);
-                    $res->write("Test2");
-
-                    return $res;
-                };
-            }
-        );
-`
+```php
+   $this->collective->addMw("Test2", function ($c) {
+            return function ($req, $res, $next) {
+                $res = $next($req, $res);
+                $res->write("Test2");
+                return $res;
+            };
+        }
+    );
+```
