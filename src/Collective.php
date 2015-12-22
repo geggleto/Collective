@@ -33,4 +33,14 @@ class Collective extends \Slim\App
             }
         }
     }
+
+    /**
+     * Add a custom middleware to the container under a key
+     * @param $name
+     * @param $func
+     */
+    public function addMw($name, $func) {
+        $container = $this->getContainer();
+        $container[$name] = $func;
+    }
 }
