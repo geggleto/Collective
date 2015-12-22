@@ -7,9 +7,9 @@ Collective does not include an ORM or PDO wrappers, this is left up to you to ch
 ## Config
 config/app.config holds your Dependency Container Default Values.
 To turn Twig Caching off:
-`
+```php
 $container["config"]["cache_path"] = false
-`
+```
 
 ## Environment
 The application expects you to set your web root to the public directory and have the ability to rewrite URLS. A default .htaccess is provided.
@@ -18,22 +18,22 @@ The application expects you to set your web root to the public directory and hav
 Routes can be configured in the app.config class for easy configuration.
 Each route must have a pattern (key) and a callable element. Middleware and names are optional
 
-`
+```php
     'routes' => [
         'get' => [
             '/' => [ "callable" => HelloWorldAction::class, "mw" => [], "name" => "" ]
         ]
     ]
-`
+```
 
 # Application Middleware
 Application middleware can be configured in the app.config file as well.
 
-`
+```php
     "app-middleware" => [
         LoggerMiddleware::class
     ]
-`
+```
 
 # Middleware Closures
 Middleware closures can be added at any point before run by wrapping your closure with a factory closure from pimple.
