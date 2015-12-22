@@ -1,6 +1,7 @@
 # Collective
-A slim 3 based skeleton project that utilizes the ADR pattern [ http://pmjones.io/adr/ ].
-Collective does not include an ORM or PDO wrappers, this is left up to you to choose!
+Collective is a slim 3 based skeleton project that recommends utilizing the ADR pattern [ http://pmjones.io/adr/ ].
+Collective will allow you to configure your app strictly from the app.config file. 
+Of course you are not limited to doing so.
 
 # Installation
 
