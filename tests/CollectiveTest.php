@@ -25,10 +25,10 @@ class CollectiveTest extends PHPUnit_Framework_TestCase
     {
         $this->container = new Slim\Container();
 
-        $this->container['app-middleware'] = [LoggerMiddleware::class];
+        $this->container['settings']['app-middleware'] = [LoggerMiddleware::class];
 
 
-        $this->container['routes'] = [
+        $this->container['settings']['routes'] = [
             'get' => [
                 '/' => [ "callable" => HelloWorldAction::class, "mw" => ["Test1", "Test2"], "name" => "" ],
                 '/json' => [ "callable" => HelloWorldJsonAction::class, "mw" => [], "name" => "" ]

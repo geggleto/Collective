@@ -12,13 +12,13 @@ namespace Collective;
 class Collective extends \Slim\App
 {
     public function applyMiddleware() {
-        foreach ($this->getContainer()['app-middleware'] as $mw) {
+        foreach ($this->getContainer()['settings']['app-middleware'] as $mw) {
             $this->add($mw);
         }
     }
 
     public function applyRoutes() {
-        foreach ($this->getContainer()['routes']['get'] as $pattern => $info) {
+        foreach ($this->getContainer()['settings']['routes']['get'] as $pattern => $info) {
 
             $route = $this->get($pattern, $info['callable']);
 
