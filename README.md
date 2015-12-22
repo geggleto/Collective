@@ -5,7 +5,7 @@ Of course you are not limited to doing so.
 
 # Install the Application
 
-Run this command from the directory in which you want to install your new Slim Framework application.
+Run this command from the directory in which you want to install your new Collective/Slim Framework application.
 
 ```php
 php composer.phar create-project geggleto/collective [my-app-name]
