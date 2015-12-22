@@ -1,5 +1,5 @@
 {
-  "name": "theslimcollective/collective",
+  "name": "geggleto/collective",
   "description": "ADR Framework",
   "authors": [
     {
@@ -8,7 +8,7 @@
     }
   ],
   "require": {
-    "theslimcollective/helper_classes": "0.0.4",
+    "geggleto/helper_classes": "0.0.4",
     "slim/twig-view": "2.0",
     "monolog/monolog": "1.17.2"
   },
