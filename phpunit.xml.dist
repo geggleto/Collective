@@ -23,7 +23,7 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory>./Slim/</directory>
+            <directory>./src/</directory>
         </whitelist>
     </filter>
 </phpunit>

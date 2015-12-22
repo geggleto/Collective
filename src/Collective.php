@@ -9,7 +9,9 @@
 namespace Collective;
 
 
-class Collective extends \Slim\App
+use Slim\App;
+
+class Collective extends App
 {
     public function applyMiddleware() {
         foreach ($this->getContainer()['settings']['app-middleware'] as $mw) {

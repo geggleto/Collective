@@ -2,6 +2,8 @@
 use Collective\Actions\HelloWorldAction;
 use Collective\Actions\HelloWorldJsonAction;
 use Collective\Middleware\LoggerMiddleware;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use Slim\Http\Body;
 use Slim\Http\Environment;
 use Slim\Http\Headers;
@@ -18,7 +20,9 @@ use Slim\Http\Uri;
 
 class CollectiveTest extends PHPUnit_Framework_TestCase
 {
+    /** @var \Collective\Collective */
     protected $collective;
+
     protected $container;
 
     public function setUp ()
@@ -30,8 +34,8 @@ class CollectiveTest extends PHPUnit_Framework_TestCase
 
         $this->container['settings']['routes'] = [
             'get' => [
-                '/' => [ "callable" => HelloWorldAction::class, "mw" => ["Test1", "Test2"], "name" => "" ],
-                '/json' => [ "callable" => HelloWorldJsonAction::class, "mw" => [], "name" => "" ]
+                '/' => [ "callable" => HelloWorldAction::class, "mw" => ["Test1", "Test2"], "name" => "Test1" ],
+                '/json' => [ "callable" => HelloWorldJsonAction::class, "mw" => [], "name" => "Test2" ]
             ]
         ];
 
@@ -48,6 +52,13 @@ class CollectiveTest extends PHPUnit_Framework_TestCase
             );
 
             return $view;
+        };
+
+        $this->container["logger"] = function ($c) {
+            $log = new Logger("Test");
+            $log->pushHandler(new \Monolog\Handler\NullHandler());
+
+            return $log;
         };
 
         $this->collective = new \Collective\Collective($this->container);
@@ -100,7 +111,14 @@ class CollectiveTest extends PHPUnit_Framework_TestCase
         $res = new \Slim\Http\Response();
 
         $collective = $this->collective;
-        $res = $collective($req, $res);
+        $container = $collective->getContainer();
+        $container['settings']['displayErrorDetails'] = true;
+
+        $container['request'] = $req;
+        $container['response'] = $res;
+
+        $res = $collective->run(true);
+
         $res->getBody()->rewind();
         $this->assertEquals($output, $res->getBody()->getContents());
     }
