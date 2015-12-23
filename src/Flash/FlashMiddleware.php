@@ -9,11 +9,20 @@
 namespace Collective\Flash;
 
 use Geggleto\Helper\BaseMiddleware;
+use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 class FlashMiddleware extends BaseMiddleware
 {
+    protected $name;
+
+    public function __construct (ContainerInterface $containerInterface, $name = 'flashStore')
+    {
+        parent::__construct($containerInterface);
+
+        $this->name = $name;
+    }
 
     /**
      * @param \Psr\Http\Message\ServerRequestInterface $request
@@ -23,28 +32,28 @@ class FlashMiddleware extends BaseMiddleware
      */
     public function __invoke (ServerRequestInterface $request, ResponseInterface $response, callable $next)
     {
-        $flashStore = $this->session->get('flashStore');
+        $flashStore = $this->session->get($this->name);
         foreach ($flashStore as $name => $value) {
             $request = $request->withAttribute($name, $value);
         }
-        $this->session->put('flashStore', []);
+        $this->session->put($this->name, []);
 
         return $next($request, $response);
     }
 
     public function put($name, $value) {
-        $flashStore = $this->session->get('flashStore');
+        $flashStore = $this->session->get($this->name);
 
         $flashStore[$name] = $value;
 
-        $this->session->put('flashStore', $flashStore);
+        $this->session->put($this->name, $flashStore);
     }
 
     public function get($name) {
-        return $this->session->get('flashStore')[$name];
+        return $this->session->get($this->name)[$name];
     }
 
     public function getAll() {
-        return $this->session->get('flashStore');
+        return $this->session->get($this->name);
     }
 }
