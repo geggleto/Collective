@@ -113,25 +113,23 @@ isset($this->session->key);
 ```
 
 # Flash Messages
-Flash Messages require the Session component.
+Flash Messages require the Session component. It is enabled by default
 Flash Messages will be deleted on the next request.
 
 ```php
-//Create a flash message
+//Create a flash message ... do it someplace
 $this->flash->put('message', 'my message');
 ```
 
 ```php
-//Access the message on the next request
+//Access the message on the next request via ServerRequestInterface
 $request->getAttribute('message');
 ```
 
 ```php
-//Access the message in TWIG on the next request
+//Access the message in Twig on the next request
 {{ flash['message'] }}
 ```
-
-
 
 # CLI Tools
 Collective provides a Symfony console app for creating Actions and Middleware easily.
@@ -154,3 +152,9 @@ Custom Error handlers are provided for:
 
 # Optional Packages
 ... Coming soon
+
+# Config Options
+For development you should disable Twig Caching as it can be a giant pain.
+```
+"cache_path" => "../cache", ==> "cache_path" => false,
+```
