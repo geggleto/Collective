@@ -3,6 +3,25 @@
 # Collective
 Collective is a skeleton project based on Slim 3, and Twig.
 
+This project comes configured with:
+ - Symfony Console App
+ - Slim 3
+ - Extendable Container Aware Classes (Action, Middleware, Controller)
+ - Route Loading via config file
+ - Middleware loading via config file
+ - Monolog
+
+Middleware:
+ - Session
+ - Flash Messages
+ - Monolog
+ - Rate Limiting
+ 
+Rendering:
+ - Json
+ - Twig [slim/twig-view]
+ - PHP [slim/php-view]
+
 # Install the Application
 
 Run this command from the directory in which you want to install your new Collective/Slim Framework application.
