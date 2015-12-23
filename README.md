@@ -2,7 +2,7 @@
 
 # Collective
 Collective is a slim 3 based skeleton project that recommends utilizing the ADR pattern [ http://pmjones.io/adr/ ].
-Collective will allow you to configure your app strictly from the app.config file. 
+Collective will allow you to configure your app strictly from the `app.config` file. 
 Of course you are not limited to doing so.
 
 # Install the Application
@@ -20,7 +20,7 @@ Ensure logs/ is web writable.
 
 
 ## Config
-config/app.config holds your Dependency Container Default Values.
+`config/app.config` holds your Dependency Container Default Values.
 To turn Twig Caching off:
 ```php
 $container["config"]["cache_path"] = false
@@ -30,8 +30,8 @@ $container["config"]["cache_path"] = false
 The application expects you to set your web root to the public directory and have the ability to rewrite URLS. A default .htaccess is provided.
 
 ## Dependency Resolution
-In any class that extends either BaseAction or BaseMiddleware, any dependency listed in app.config will be
-  available in the class by accessing it through the app.config key as a class property.
+In any class that extends either BaseAction or BaseMiddleware, any dependency listed in `app.config` will be
+  available in the class by accessing it through the `app.config` key as a class property.
   
 That is to say, if I want to access the session object in an action
 ```php
@@ -45,7 +45,7 @@ public function __invoke (ServerRequestInterface $request, ResponseInterface $re
 
 
 # Routes
-Routes can be configured in the app.config class for easy configuration.
+Routes can be configured in the `app.config` class for easy configuration.
 Each route must have a pattern (key) and a callable element. Middleware and names are optional
 
 ```php
@@ -62,7 +62,7 @@ Each route must have a pattern (key) and a callable element. Middleware and name
 ```
 
 # Application Middleware
-Application middleware can be configured in the app.config file as well.
+Application middleware can be configured in the `app.config` file as well.
 
 ```php
     "app-middleware" => [
@@ -85,7 +85,7 @@ Middleware closures can be added at any point before run by wrapping your closur
 
 # Session
 Sessions are on by default.
-If you want to turn sessions off or swap packages, then remove the "session" key from the app.config file.
+If you want to turn sessions off or swap packages, then remove the "session" key from the `app.config` file.
 The session class uses whatever your php is configured to use [which is files by default].
 
 Supported Syntax:
