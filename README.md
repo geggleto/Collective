@@ -14,7 +14,7 @@ php composer.phar create-project geggleto/collective [my-app-name]
 Replace [my-app-name] with the desired directory name for your new application. You'll want to:
 
 Point your virtual host document root to your new application's public/ directory.
-Ensure logs/ is web writable.
+Ensure `../logs/` is web writable.
 
 
 ## Config
