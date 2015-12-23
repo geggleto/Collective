@@ -1,9 +1,7 @@
 [![Build Status](https://travis-ci.org/geggleto/Collective.svg)](https://travis-ci.org/geggleto/Collective)
 
 # Collective
-Collective is a slim 3 based skeleton project.
-Collective will allow you to configure your app strictly from the `app.config` file. 
-Of course you are not limited to doing so.
+Collective is a skeleton project based on Slim 3, and Twig.
 
 # Install the Application
 
