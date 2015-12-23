@@ -98,7 +98,7 @@ with a factory closure from pimple.
 
 # Session
 Sessions are on by default.
-If you want to turn sessions off or swap packages, then remove the "session" key 
+If you want to turn sessions off or swap packages, then remove the `session` key 
 from the `app.config` file. The session class uses whatever your php is configured 
 to use [which is files by default].
 
@@ -112,7 +112,8 @@ $this->session->key = 'value';
 isset($this->session->key);
 ```
 
-If you want to use a different storage engine than the php default check this.
+If you want to use a different storage engine than the see this page.
+
 (http://php.net/manual/en/function.session-set-save-handler.php)
 
 # Flash Messages
