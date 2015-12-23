@@ -112,6 +112,9 @@ $this->session->key = 'value';
 isset($this->session->key);
 ```
 
+If you want to use a different storage engine than the php default check this.
+(http://php.net/manual/en/function.session-set-save-handler.php)
+
 # Flash Messages
 Flash Messages require the Session component. It is enabled by default
 Flash Messages will be deleted on the next request.
