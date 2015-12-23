@@ -33,13 +33,13 @@ The application expects you to set your web root to the public directory and hav
 Collective provides base classes that are container aware so you don't need to write your own!
 
 ## Actions
-The `Geggleto/Helper` namespace provides an extendable class `Geggleto\Helper\BaseAction` for your Actions if you are following ADR.
+Collective provides an extendable class `Geggleto\Helper\BaseAction` for your Actions if you are following ADR.
 
 ## Controllers
-The `Geggleto/Helper` namespace provides an extendable class `Geggleto\Helper\BaseContainerClass` for your Controllers if you are following MVC.
+Collective provides an extendable class `Geggleto\Helper\BaseContainerClass` for your Controllers if you are following MVC.
 
 ## Middleware
-The `Geggleto/Helper` namespace provides an extendable class `Geggleto\Helper\BaseMiddleware` for your Middleware.
+Collective provides an extendable class `Geggleto\Helper\BaseMiddleware` for your Middleware.
 
 ## Dependency Resolution
 In any class that extends either (`BaseAction`, `BaseMiddleware` or `BaseContainerClass`), 
