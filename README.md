@@ -29,20 +29,31 @@ $container["config"]["cache_path"] = false
 ## Environment
 The application expects you to set your web root to the public directory and have the ability to rewrite URLS. A default .htaccess is provided.
 
+# Architecture
+Collective provides base classes that are container aware so you don't need to write your own!
+
+## Actions
+The `Geggleto/Helper` namespace provides an extendable class `Geggleto\Helper\BaseAction` for your Actions if you are following ADR.
+
+## Controllers
+The `Geggleto/Helper` namespace provides an extendable class `Geggleto\Helper\BaseContainerClass` for your Controllers if you are following MVC.
+
+## Middleware
+The `Geggleto/Helper` namespace provides an extendable class `Geggleto\Helper\BaseMiddleware` for your Middleware.
+
 ## Dependency Resolution
-In any class that extends either BaseAction or BaseMiddleware, any dependency listed in `app.config` will be
-  available in the class by accessing it through the `app.config` key as a class property.
+In any class that extends either (`BaseAction`, `BaseMiddleware` or `BaseContainerClass`), 
+any dependency listed in `app.config` will be  available in the class by accessing 
+it through the `app.config` key as a class variable.
   
 That is to say, if I want to access the session object in an action
 ```php
 //Access Session object in a Action
 public function __invoke (ServerRequestInterface $request, ResponseInterface $response, array $args)
 {
-    $session = $this->session;
-    return $this->twig->render($response, "hello.twig", [$session->get('name')]);
+    return $this->twig->render($response, "hello.twig", [$this->session->get('name')]);
 }
 ```
-
 
 # Routes
 Routes can be configured in the `app.config` class for easy configuration.
