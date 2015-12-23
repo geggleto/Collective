@@ -43,6 +43,6 @@ class Session implements ISession
     }
 
     public function queue($name, $value) {
-        $this->$name[] = $value;
+        $this->{$name}[] = $value;
     }
 }
