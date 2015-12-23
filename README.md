@@ -42,9 +42,7 @@ To turn Twig Caching off:
 ```php
 $container["config"]["cache_path"] = false
 ```
-
-# Config Options
-For development you should disable Twig Caching as it can be a giant pain.
+Or
 ```
 "cache_path" => "../cache", ==> "cache_path" => false,
 ```
