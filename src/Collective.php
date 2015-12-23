@@ -10,9 +10,13 @@ namespace Collective;
 
 
 use Slim\App;
+use Slim\Interfaces\RouteInterface;
 
 class Collective extends App
 {
+    protected $verbs = ['get', 'post', 'head', 'options', 'put', 'delete'];
+
+
     public function applyMiddleware() {
         foreach ($this->getContainer()['settings']['app-middleware'] as $mw) {
             $this->add($mw);
@@ -20,19 +24,25 @@ class Collective extends App
     }
 
     public function applyRoutes() {
-        foreach ($this->getContainer()['settings']['routes']['get'] as $pattern => $info) {
-
-            $route = $this->get($pattern, $info['callable']);
-
-            if (isset($info['mw']) && count($info['mw']) > 1) {
-                foreach ($info['mw'] as $mw) {
-                    $route->add($mw);
+        foreach ($this->verbs as $verb) {
+            if (isset($this->getContainer()['settings']['routes'][$verb])) {
+                foreach ($this->getContainer()['settings']['routes'][ $verb ] as $pattern => $info) {
+                    $route = $this->{$verb}($pattern, $info['callable']);
+                    $this->configureRoute($route, $info);
                 }
             }
+        }
+    }
 
-            if (!empty($info['name'])) {
-                $route->setName($info['name']);
+    protected function configureRoute(RouteInterface $route, $info = []) {
+        if (isset($info['mw']) && count($info['mw']) > 1) {
+            foreach ($info['mw'] as $mw) {
+                $route->add($mw);
             }
+        }
+
+        if (!empty($info['name'])) {
+            $route->setName($info['name']);
         }
     }
 
