@@ -27,16 +27,19 @@ $container["config"]["cache_path"] = false
 ```
 
 ## Environment
-The application expects you to set your web root to the public directory and have the ability to rewrite URLS. A default .htaccess is provided.
+The application expects you to set your web root to the public directory and have 
+the ability to rewrite URLS. A default .htaccess is provided.
 
 # Architecture
 Collective provides base classes that are container aware so you don't need to write your own!
 
 ## Actions
-Collective provides an extendable class `Geggleto\Helper\BaseAction` for your Actions if you are following ADR.
+Collective provides an extendable class `Geggleto\Helper\BaseAction` for your Actions 
+if you are following ADR.
 
 ## Controllers
-Collective provides an extendable class `Geggleto\Helper\BaseContainerClass` for your Controllers if you are following MVC.
+Collective provides an extendable class `Geggleto\Helper\BaseContainerClass` for your 
+Controllers if you are following MVC.
 
 ## Middleware
 Collective provides an extendable class `Geggleto\Helper\BaseMiddleware` for your Middleware.
@@ -82,7 +85,8 @@ Application middleware can be configured in the `app.config` file as well.
 ```
 
 # Middleware Closures
-Middleware closures can be added at any point before run by wrapping your closure with a factory closure from pimple.
+Middleware closures can be added at any point before run by wrapping your closure 
+with a factory closure from pimple.
 ```php
    $this->collective->addMw("Test2", function ($c) {
             return function ($req, $res, $next) {
@@ -96,8 +100,9 @@ Middleware closures can be added at any point before run by wrapping your closur
 
 # Session
 Sessions are on by default.
-If you want to turn sessions off or swap packages, then remove the "session" key from the `app.config` file.
-The session class uses whatever your php is configured to use [which is files by default].
+If you want to turn sessions off or swap packages, then remove the "session" key 
+from the `app.config` file. The session class uses whatever your php is configured 
+to use [which is files by default].
 
 Supported Syntax:
 ```php
