@@ -112,6 +112,27 @@ $this->session->key = 'value';
 isset($this->session->key);
 ```
 
+# Flash Messages
+Flash Messages require the Session component.
+Flash Messages will be deleted on the next request.
+
+```php
+//Create a flash message
+$this->flash->put('message', 'my message');
+```
+
+```php
+//Access the message on the next request
+$request->getAttribute('message');
+```
+
+```php
+//Access the message in TWIG on the next request
+{{ flash['message'] }}
+```
+
+
+
 # CLI Tools
 Collective provides a Symfony console app for creating Actions and Middleware easily.
 
