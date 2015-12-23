@@ -24,6 +24,12 @@ To turn Twig Caching off:
 $container["config"]["cache_path"] = false
 ```
 
+# Config Options
+For development you should disable Twig Caching as it can be a giant pain.
+```
+"cache_path" => "../cache", ==> "cache_path" => false,
+```
+
 ## Environment
 The application expects you to set your web root to the public directory and have 
 the ability to rewrite URLS. A default `.htaccess` is provided.
@@ -156,9 +162,3 @@ Custom Error handlers are provided for:
 
 # Optional Packages
 ... Coming soon
-
-# Config Options
-For development you should disable Twig Caching as it can be a giant pain.
-```
-"cache_path" => "../cache", ==> "cache_path" => false,
-```
