@@ -11,7 +11,7 @@ namespace Collective\Actions;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use TheSlimCollective\Helper\BaseAction;
+use Geggleto\Helper\BaseAction;
 
 class HelloWorldJsonAction extends BaseAction
 {

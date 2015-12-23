@@ -8,7 +8,7 @@
     }
   ],
   "require": {
-    "geggleto/helper_classes": "0.0.4",
+    "geggleto/helper_classes": "0.0.5",
     "slim/twig-view": "2.0",
     "monolog/monolog": "1.17.2",
     "slim/php-view": "2.0.6",

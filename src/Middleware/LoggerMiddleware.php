@@ -13,7 +13,7 @@ use Interop\Container\ContainerInterface;
 use Monolog\Logger;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use TheSlimCollective\Helper\BaseMiddleware;
+use Geggleto\Helper\BaseMiddleware;
 
 class LoggerMiddleware extends BaseMiddleware
 {
