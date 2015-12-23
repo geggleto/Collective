@@ -111,8 +111,14 @@ php cli.php create:action MyActionClassName
 php cli.php create:middleware MyMiddlewareClassName
 ```
 
+# Error Pages
+Custom Error handlers are provided for:
+ - Page not found `templates/404.twig`
+ - Method not allowed `templates/405.twig`
+ - Server Error `templates/500.twig`
 
 # Optional Packages
  - Rate Limiting
- - Authentication
- - 
+ - Authentication OAuth
+ - ACL
+ ... etc

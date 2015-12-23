@@ -9,7 +9,7 @@
 namespace Collective\Session;
 
 
-class Session
+class Session implements ISession
 {
     public function __construct($name='collective')
     {
@@ -40,5 +40,9 @@ class Session
 
     public function has($name) {
         return isset($this->$name);
+    }
+
+    public function queue($name, $value) {
+        $this->$name[] = $value;
     }
 }
