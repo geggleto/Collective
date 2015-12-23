@@ -113,9 +113,9 @@ php cli.php create:middleware MyMiddlewareClassName
 
 # Error Pages
 Custom Error handlers are provided for:
- - Page not found ```php templates/404.twig ```
- - Method not allowed ```php templates/405.twig ```
- - Server Error ```php templates/500.twig ```
+ - Page not found ``` templates/404.twig ```
+ - Method not allowed ``` templates/405.twig ```
+ - Server Error ``` templates/500.twig ```
 
 # Optional Packages
  - Rate Limiting
