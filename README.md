@@ -11,10 +11,10 @@ Run this command from the directory in which you want to install your new Collec
 php composer.phar create-project geggleto/collective [my-app-name]
 ```
 
-Replace [my-app-name] with the desired directory name for your new application. You'll want to:
-
-Point your virtual host document root to your new application's public/ directory.
-Ensure `../logs/` is web writable.
+Replace `[my-app-name]` with the desired directory name for your new application. 
+You'll want to:
+- Point your virtual host document root to your new application's `public/` directory.
+- Ensure `logs/` is web writable.
 
 
 ## Config
@@ -26,7 +26,7 @@ $container["config"]["cache_path"] = false
 
 ## Environment
 The application expects you to set your web root to the public directory and have 
-the ability to rewrite URLS. A default .htaccess is provided.
+the ability to rewrite URLS. A default `.htaccess` is provided.
 
 # Architecture
 Collective provides base classes that are container aware so you don't need to write your own!
