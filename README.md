@@ -118,7 +118,4 @@ Custom Error handlers are provided for:
  - Server Error ``` templates/500.twig ```
 
 # Optional Packages
- - Rate Limiting
- - Authentication OAuth
- - ACL
- ... etc
+... Coming soon
